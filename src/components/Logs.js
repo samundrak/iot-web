@@ -1,8 +1,6 @@
 import {
   Box,
-  Flex,
   HStack,
-  List,
   ListItem,
   Stack,
   Text,

@@ -1,4 +1,3 @@
-import { Tooltip } from "@chakra-ui/tooltip";
 import React from "react";
 import {
   CartesianGrid,
@@ -10,10 +9,13 @@ import {
   YAxis,
 } from "recharts";
 
-const ChartBox = () => {
+const ChartBox = (props) => {
   return (
-    <ResponsiveContainer width={"99%"} height={250}>
-      <LineChart data={[]} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+    <ResponsiveContainer width={450} height={250}>
+      <LineChart
+        data={props.data || []}
+        margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
@@ -36,9 +38,9 @@ const ChartBox = () => {
         <Legend wrapperStyle={{ color: "gray" }} />
         <Line
           type="monotone"
-          dataKey={"temperature"}
-          stroke={"red"}
-          name={"Temperature"}
+          dataKey={props.dataKey}
+          stroke={props.lineColor}
+          name={props.name}
         />
       </LineChart>
     </ResponsiveContainer>

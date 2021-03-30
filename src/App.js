@@ -1,6 +1,7 @@
 import { Flex, HStack, Stack } from "@chakra-ui/layout";
 import React from "react";
 import "./App.css";
+import ChartBox from "./components/ChartBox";
 import Logs from "./components/Logs";
 import { firebasedb } from "./firebase";
 
@@ -46,8 +47,40 @@ function App() {
           </Flex>
         </HStack>
         <HStack>
-          <Flex>Temperature</Flex>
-          <Flex>Humidity</Flex>
+          <Flex>
+            <ChartBox
+              data={logs}
+              name="Temperature"
+              dataKey="temperature"
+              lineColor="red"
+            />
+          </Flex>
+          <Flex>
+            <ChartBox
+              data={logs}
+              name="Humidity"
+              dataKey="humidity"
+              lineColor="blue"
+            />
+          </Flex>
+        </HStack>
+        <HStack>
+          <Flex>
+            <ChartBox
+              data={logs}
+              name="Soil Moisture"
+              dataKey="soilMoisture"
+              lineColor="orange"
+            />
+          </Flex>
+          <Flex>
+            <ChartBox
+              data={logs}
+              name="Motion"
+              dataKey="motion"
+              lineColor="white"
+            />
+          </Flex>
         </HStack>
       </Stack>
     </div>
